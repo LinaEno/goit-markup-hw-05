@@ -14,6 +14,9 @@
   --icon-social: #AFB1B8;
   --fotter-box-color: rgba(255, 255, 255, 0.1);
   --under-hero: #c4c4c4;
+  --cubic: cubic-bezier(0.4, 0, 0.2, 1);
+  --time: 2500ms;
+  --work-sec-bg: rgba(47, 48, 58, 0.8);
 }
 
 body {
@@ -84,6 +87,7 @@ body {
   letter-spacing: 0.02em;
   line-height: 1.1;
   text-decoration: none;
+  transition: color var(--time) var(--cubic);
 }
 
 .link-nav-cont {
@@ -94,6 +98,7 @@ body {
   letter-spacing: 0.02em;
   text-decoration: none;
   line-height: 1.1;
+  transition: color var(--time) var(--cubic);
 }
 
 .link-nav:hover,
@@ -110,6 +115,20 @@ body {
 
 .link-nav.current {
   color: var(--accent-color);
+}
+
+.li-nav {
+  position: relative;
+}
+
+.current::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  width: 100%;
+  background-color: var(--accent-color);
 }
 
 .visually-hidden {
@@ -148,7 +167,7 @@ body {
 .button-port {
   font-family: inherit;
   padding: 6px 22px;
-  background: var(--portfolio-button);
+  background-color: var(--portfolio-button);
   border-radius: 4px;
   border: 1px solid transparent;
   font-weight: 500;
@@ -156,6 +175,10 @@ body {
   line-height: 1.6;
   letter-spacing: 0.03em;
   color: var(--second-text-color);
+  box-shadow: none;
+  transition: color var(--time) var(--cubic),
+  background-color var(--time) var(--cubic),
+  box-shadow var(--time) var(--cubic);
 }
 
 .button-port:hover,
@@ -214,6 +237,8 @@ body {
 
 .example-link {
   display: block;
+  box-shadow: none;
+  transition: box-shadow var(--time) var(--cubic);
 }
 
 .example-link:hover,
@@ -247,12 +272,14 @@ body {
   color: var(--white-color);
   text-decoration: none;
   font-style: normal;
+  transition: color var(--time) var(--cubic);
 }
 
 .contacts {
   color: var(--footer-color);
   text-decoration: none;
   font-style: normal;
+  transition: color var(--time) var(--cubic);
 }
 
 .contacts:hover,
@@ -301,6 +328,7 @@ body {
   border: none;
   border-radius: 50%;
   background-color: var(--fotter-box-color);
+  transition: background-color var(--time) var(--cubic);
 }
 
 .social-link-footer:hover,
@@ -368,7 +396,7 @@ body {
   letter-spacing: 0.06em;
   min-width: 216px;
   padding: 10px 32px;
-  background: var(--accent-color);
+  background-color: var(--accent-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   border: 1px solid transparent;
@@ -377,11 +405,12 @@ body {
   line-height: 1.9;
   font-weight: 700;
   font-family: inherit;
+  transition: background-color var(--time) var(--cubic);
 }
 
 .hero-button:hover,
 .hero-button:focus {
-  background: var(--button-hero-activ);
+  background-color: var(--button-hero-activ);
 }
 
 .ul-main {
@@ -460,6 +489,32 @@ body {
   line-height: 1.2;
 }
 
+.position {
+  position: relative;
+}
+
+.work-cont-text {
+  position: absolute;
+  display: inline-flex;
+  width: 100%;
+  min-height: 70px;
+  left: 0;
+  bottom: 0;
+  background-color: var(--work-sec-bg);
+  justify-content: center;
+  align-items: center;
+}
+
+.work-text {
+  padding: 0;
+  margin: 0;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--white-color);
+}
+
 .li-team.box {
   background-color: var(--white-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
@@ -506,6 +561,10 @@ body {
   align-items: center;
   justify-content: center;
   color: var(--icon-social);
+  border: none;
+  border-radius: 50%;
+  transition: background-color var(--time) var(--cubic),
+  color var(--time) var(--cubic);
 }
 
 .social-li:not(:last-child){
@@ -532,6 +591,8 @@ body {
   justify-content: center;
   color: var(--icon-social);
   border: 1px solid var(--icon-social);
+  transition: color var(--time) var(--cubic),
+  border var(--time) var(--cubic);
 }
 
 .icon-client {
@@ -540,7 +601,7 @@ body {
 
 .clients-link:hover,
 .clients-link:focus {
-  border-color: var(--accent-color);
+  border: 1px solid var(--accent-color);
   color: var(--accent-color);
 }
 
