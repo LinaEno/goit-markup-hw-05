@@ -15,9 +15,11 @@
   --fotter-box-color: rgba(255, 255, 255, 0.1);
   --under-hero: #c4c4c4;
   --cubic: cubic-bezier(0.4, 0, 0.2, 1);
-  --time: 2500ms;
+  --time: 250ms;
   --work-sec-bg: rgba(47, 48, 58, 0.8);
   --overlay-color: rgba(33, 150, 243, 0.9);
+  --overlay-modal-color: rgba(0, 0, 0, 0.2);
+  --modal-button-border: rgba(0, 0, 0, 0.1);
 }
 
 body {
@@ -61,6 +63,9 @@ body {
 }
 
 .logom {
+  display: block;
+  padding-top: 24px;
+  padding-bottom: 25px;
   margin-right: 93px;
   font-weight: 700;
   font-size: 26px;
@@ -93,6 +98,8 @@ body {
 
 .link-nav-cont {
   display: flex;
+  padding-top: 32px;
+  padding-bottom: 32px;
   align-items: center;
   color: var(--first-text-color);
   font-weight: 500;
@@ -392,6 +399,55 @@ body {
 
 /*main page*/
 
+.modal {
+  position: fixed;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: var(--overlay-modal-color);
+  opacity: 1;
+  transition: opacity var(--time) var(--cubic);
+}
+
+.modal.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.modal.is-hidden .form {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.form {
+  position: absolute;
+  z-index: 100;
+  display: flex;
+  justify-content: right;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  min-width: 528px;
+  min-height: 581px;
+  background-color: var(--white-color);
+  transition: transform var(--time) var(--cubic);
+}
+
+.modal-button {
+  display: inline-flex;
+  margin-top: 8px;
+  margin-right: 8px;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--modal-button-border);
+  border-radius: 50%;
+}
+
 .hero {
   background-color: var(--under-hero);
   text-align: center;
@@ -528,6 +584,7 @@ body {
 
 .work-cont-text {
   position: absolute;
+  z-index: 1;
   display: inline-flex;
   width: 100%;
   min-height: 70px;
